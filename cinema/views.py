@@ -112,7 +112,7 @@ class MovieViewSet(
         serializer = ImageUploadSerializer(
             movie, data=request.data, partial=True
         )
-        if serializer.is_valid(raise_exceptions=True):
+        if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data, status=HTTP_200_OK)
         return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
